@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+slug: /tp03
 ---
 
 # 03 - Automates Finis

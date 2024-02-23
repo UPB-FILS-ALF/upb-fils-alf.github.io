@@ -1,9 +1,10 @@
 ---
 sidebar_position: 3
+slug: /tp03
+description: Reconaissance des chaînes de caractères
 ---
 
 # 03 - Automates Finis
-#### Reconaissance des chaînes de caractères
 
 ## Le problème posé
 Pour un compilateur, au commencement du processus de compilation, tout fichier avec de code est vu comme une chaîne de caractères dans lequel il faut identifier les mots composants et les partager dans des jetons (*tokens*). Pour faire cela, on a besoin d’une méthode pour reconnaître certaines sous-chaînes dans le texte initial. Les automates finis offrent une bonne solution à ce problème.

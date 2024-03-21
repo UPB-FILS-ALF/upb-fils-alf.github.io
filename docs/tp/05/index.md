@@ -78,8 +78,18 @@ Au lieu d’écrire vous-même le lexer et le parser, ANTLR peut les générer a
 Le fichier avec la grammaire doit se trouver sous le chemin `src/main/antlr`. Après la génération, vous trouvez aussi le dossier `.antlr`, qui contient toutes les fichiers générés par antlr.
 ![antlr_file_hierarchy](images/05_antlr_generated_files.png)
 
-Pour utiliser cettes nouveaux fichiers dans votre code, il faut seulement instantier les classes:
+Pour utiliser cettes nouveaux fichiers dans votre code, il faut seulement instantier les classes.
+
+:::tip
+  Les noms du lexer et parser auront le format suivant: `<nom_de_votre_grammaire\>Lexer` et `<nom_de_votre_grammaire>Parser`. Ils sont des sous-classes des classes Lexer et Parser. Pour voir plusieurs details sur cettes classes et les methodes qu’elles exposent, on vous conseille d’ouvrir la documentation: [lexer](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Lexer.html) et [parser](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Parser.html).
+:::
+
+### Lexer
+
+L’exemple suivant montre comment utiliser le Lexer généré par ANTLR à partir de notre grammaire:
+
 ```kotlin
+  //Afficher les valeurs des jétons du texte
   import org.antlr.v4.runtime.CharStreams
   import org.antlr.v4.runtime.CommonTokenStream
 
@@ -90,20 +100,60 @@ Pour utiliser cettes nouveaux fichiers dans votre code, il faut seulement instan
       for(token in listOfTokens){
           println("Token with value ${token.text} found at line ${token.line} starting from index ${token.startIndex}")
       }
-      val parser = demoParser(CommonTokenStream(lexer))
-      val tree = parser.p()
   }
 ```
 
-Les methodes du parser sont obtenues à partir de la grammaire. Dans cet exemple, on commence la construction de l'arbre d’analyse avec la production qui a comme tête la variable $p$. D’habitude, on commence l’analyse avec la régle de début de notre grammaire.
+La sortie sera:
 
-:::tip
-  Les noms du lexer et parser auront le format suivant: `<nom_de_votre_grammaire\>Lexer` et `<nom_de_votre_grammaire>Parser`. Ils sont des sous-classes des classes Lexer et Parser. Pour voir plusieurs details sur cettes classes et les methodes qu’elles exposent, on vous conseille d’ouvrir la documentation: [lexer](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Lexer.html) et [parser](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Parser.html).
+```sh
+  Token with value 0 found at line 1 starting from index 0
+  Token with value 0 found at line 1 starting from index 1
+  Token with value 1 found at line 1 starting from index 2
+  Token with value 1 found at line 1 starting from index 3
+  Token with value + found at line 1 starting from index 4
+  Token with value 0 found at line 1 starting from index 5
+  Token with value 1 found at line 1 starting from index 6
+```
+
+### Parser
+
+Les methodes du notre parser sont obtenues à partir de la grammaire. Dans cet exemple, on commence la construction de l'arbre d’analyse avec la production qui a comme tête la variable $p$. D’habitude, on commence l’analyse avec la régle de début de notre grammaire.
+
+```kotlin
+  //Afficher les valeurs des jétons du texte
+  import org.antlr.v4.runtime.CharStreams
+  import org.antlr.v4.runtime.CommonTokenStream
+
+  fun main(){
+      val strToParse = "0011+01"
+      val lexer = demoLexer(CharStreams.fromString(strToParse))
+      val parser = demoParser(CommonTokenStream(lexer))
+      val tree = parser.p()
+      println(tree.text)
+      for(i in 0 until tree.childCount){
+          println(tree.getChild(i).text)
+      }
+  }
+```
+
+La sortie sera:
+```sh
+  0011+01
+  0011
+  +
+  01
+```
+
+On peut voir ici les sorties suivantes: la première ligne est le texte entier (qui corréspond au texte de la variable $p$, la racine de notre arbre d’analyse). Ensuite, on prend les noeuds enfants, qui doivent être une occurence de $s$, un caractère `+` et une autre occurence de $s$. On peut voir que la sortie correspond aux demandes.
+
+:::warning
+  On vous conseil de ne pas combiner les deux exemples. C’est-à-dire, soit vous utilisez le Lexer pour afficher/travailler avec les jétons, soit vous continuez avec le Parser. 
+  
+  On dit cela parce que les mèthodes du Lexer comme getAllTokens ou nextToken() consomme les jétons. Si vous utilisez les premiers trois jétons et ensuite vous continuez avec le Parser, il commencera à partir du quatrième jéton.
 :::
 
 ## Exercices
-repondez aux questios:
-0. Compilez et exécutez l’exemple dans `TP05/Ex0`. Lisez la sortie, la documentation sur Lexer et Parser et 
+
 1. Ouvrez le dossier `TP5/Ex1`. Suivez les `TODO` de la grammaire dans le fichier `app/src/main/antlr/ex1.g4` pour accepter des déclarations des variable ayant la syntaxe suivante:
 
 ```c

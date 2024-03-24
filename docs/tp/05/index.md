@@ -152,6 +152,28 @@ On peut voir ici les sorties suivantes: la première ligne est le texte entier (
   On dit cela parce que les mèthodes du Lexer comme getAllTokens ou nextToken() consomme les jétons. Si vous utilisez les premiers trois jétons et ensuite vous continuez avec le Parser, il commencera à partir du quatrième jéton.
 :::
 
+### Visualisation de l’arbre d’analyse (parse tree)
+À partir de notre code source et de la grammaire, ANTLR peut aussi générer une représentation graphique de notre **arbre d’analyse** (**parse tree**). Pour faire cela, on a besoin du code suivant:
+
+```kotlin
+  import org.antlr.v4.runtime.CharStreams
+  import org.antlr.v4.runtime.CommonTokenStream
+  import org.antlr.v4.gui.TreeViewer
+  import java.io.File
+
+  fun main(){
+      val strToParse = "0011+01"
+      val lexer = demoLexer(CharStreams.fromString(strToParse))
+      val parser = demoParser(CommonTokenStream(lexer))
+      val tree = parser.p()
+      val viewr : TreeViewer = TreeViewer(parser.ruleNames.toMutableList(), tree)
+      viewr.open()
+  }
+```
+
+Quand on exécute le programme, on obtient la fenêtre suivante:
+![parse_tree_graph](images/05_parse_tree_graph.png)
+
 ## Exercices
 
 1. Ouvrez le dossier `TP5/Ex1`. Suivez les `TODO` de la grammaire dans le fichier `app/src/main/antlr/ex1.g4` pour accepter des déclarations des variable ayant la syntaxe suivante:

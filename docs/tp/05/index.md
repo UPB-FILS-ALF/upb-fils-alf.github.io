@@ -1,25 +1,25 @@
 ---
 sidebar_position: 6
 description: Introduction en ANTLR
-slug: tp/05
+slug: /tp/05
 ---
 
-# 05 - ANTLR Lexer et Parser
+# 05 - ANTLR Lexer et Analyseur
 
 Le TP précédent, on a vu comment écrire des grammaire pour décrire les langages de programmation. Maintenant, on commence la transition de la partie des langages formels vers les compilateurs.
 
 ## Lexer
-Le **Lexer** est une composante du compilateur. Son but est de lire le texte d’entrée (qui est notre programme source) et de produire en tant que sortie une **séquence de jétons**. Les erreurs qui apparaissent au niveau du Parser sont des **erreurs d’analyze lexicale**.
+Le **Lexer** est une composante du compilateur. Son but est de lire le texte d’entrée (qui est notre programme source) et de produire en tant que sortie une **séquence de jétons**. Les erreurs qui apparaissent au niveau du **Lexer** sont des **erreurs d’analyze lexicale**.
 
 Dans le contexte du Lexer, on introduit les définitions suivantes:
 - le **jéton** (**token**) est une paire qui contient le nom du jéton et une valeur. Le nom du jéton est un symbole abstrait qui représente un genre d’unité lexicale. 
 - le **modèle** est une description de la forme que les lexemes d’un jéton peuvent avoir. Si le jéton représent un mot clé (par exemple, le mot clé if), le jétons est une chaîne de caractères qui composent le mot. Pour d’autres situations (par exemple, pour définir des noms pour les variables), on utilise des expréssions plus complexes (comme les RegEx).
-- le **lexeme** est une séquence de caractères dans le programme source qui correspond au modèle d’un jéton et est identifié par le Lexer comme une instance du jéton.
+- le **lexème** est une séquence de caractères dans le programme source qui correspond au modèle d’un jéton et est identifié par le Lexer comme une instance du jéton.
 
 ![Exemples_Tokens](images/05_tokens_examples.png)
 
-## Parser
-Le Parser obtient la séquence de jétons produite par le Lexer et vérifie si elle peut être générée par la grammaire du langage source. La sortie du Parser est l’arbre d’analyze (Parse Tree). Les erreurs qui apparaissent au niveau du Parser sont des **erreurs d’analyze syntaxique**.
+## Analyseur (Parser)
+**L'Analyseur** obtient la séquence de jétons produite par le Lexer et vérifie si elle peut être générée par la grammaire du langage source. La sortie du Analyseur est l’arbre d’analyze (Parse Tree). Les erreurs qui apparaissent au niveau du Analyseur sont des **erreurs d’analyse syntaxique**.
 
 ![Lexer_And_Parser](images/05_lexer_parser.png)
 
@@ -52,7 +52,7 @@ En ANTLR, on **ne peut pas avoir des productions avec la même tête**. Ce qu’
 ```antlr4
   assignment: VARIABLE_NAME '=' INTEGER ; //une règle pour représenter une affectation
   
-  //une règles pour représenter une expression d'addition
+  //une règle pour représenter une expression d'addition
   addition: addition '+' INTEGER
           | INTEGER
           ;
@@ -72,16 +72,25 @@ s : ZERO s ONE
   |;
 ```
 
-## Parser et Lexer avec ANTLR
-Au lieu d’écrire vous-même le lexer et le parser, ANTLR peut les générer automatiquement à partir de votre grammaire. Vous devez seulement les utiliser dans votre code.
+:::tip[Nos conseils pour écrire des grammaires pour les langages de programmation]
+  Quand vous commencez à écrire une grammaire pour n’importe quel langage de programmation, on vous conseil de suivre les étapes suivantes:
+  - identifiez les instructions possibles dans le langage (la déclaration des variables, les boucles, les instructions de contrôle)
+  - pour chacune de cettes instructions, déterminez les parties composantes (les mot clés, les noms des variables/fonctions, les expréssions mathématiques)
+  - pour chacune de cettes instructions, écrivez les règles de Lexer pour ses composantes et, ensuite, écrivez une règle pour décrire l’instruction elle-même
+  - vérifiez, après chaque nouvelle instruction ajoutée, le comportement du Lexer et Parser générés par ANTLR.
+:::
 
-Le fichier avec la grammaire doit se trouver sous le chemin `src/main/antlr`. Après la génération, vous trouvez aussi le dossier `.antlr`, qui contient toutes les fichiers générés par antlr.
+
+## Analyseur et Lexer avec ANTLR
+Au lieu d’écrire vous-mêmes le lexer et l'analyseur, ANTLR peut les générer automatiquement à partir de votre grammaire. Vous devez seulement les utiliser dans votre code.
+
+Le fichier avec la grammaire doit se trouver sous le chemin `src/main/antlr`. Après la génération, vous trouvez aussi le dossier `.antlr`, qui contient tous les fichiers générés par antlr.
 ![antlr_file_hierarchy](images/05_antlr_generated_files.png)
 
-Pour utiliser cettes nouveaux fichiers dans votre code, il faut seulement instantier les classes.
+Pour utiliser ces nouveaux fichiers dans votre code, il faut seulement instantier les classes.
 
 :::tip
-  Les noms du lexer et parser auront le format suivant: `<nom_de_votre_grammaire\>Lexer` et `<nom_de_votre_grammaire>Parser`. Ils sont des sous-classes des classes Lexer et Parser. Pour voir plusieurs details sur cettes classes et les methodes qu’elles exposent, on vous conseille d’ouvrir la documentation: [lexer](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Lexer.html) et [parser](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Parser.html).
+  Les noms du lexer et analyseur auront le format suivant: `<nom_de_votre_grammaire>Lexer` et `<nom_de_votre_grammaire>Parser`. Ils sont des sous-classes des classes Lexer et Parser. Pour voir plusieurs détails sur ces classes et les méthodes qu’elles exposent, on vous conseille d’ouvrir la documentation: [lexer](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Lexer.html) et [parser](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Parser.html).
 :::
 
 ### Lexer
@@ -117,7 +126,7 @@ La sortie sera:
 
 ### Parser
 
-Les methodes du notre parser sont obtenues à partir de la grammaire. Dans cet exemple, on commence la construction de l'arbre d’analyse avec la production qui a comme tête la variable $p$. D’habitude, on commence l’analyse avec la régle de début de notre grammaire.
+Les méthodes du notre parser sont obtenues à partir de la grammaire. Dans cet exemple, on commence la construction de l'arbre d’analyse avec la production qui a comme tête la variable $p$. D’habitude, on commence l’analyse avec la régle de début de notre grammaire.
 
 ```kotlin
   //Afficher les valeurs des jétons du texte
@@ -166,8 +175,8 @@ On peut voir ici les sorties suivantes: la première ligne est le texte entier (
       val lexer = demoLexer(CharStreams.fromString(strToParse))
       val parser = demoParser(CommonTokenStream(lexer))
       val tree = parser.p()
-      val viewr : TreeViewer = TreeViewer(parser.ruleNames.toMutableList(), tree)
-      viewr.open()
+      val viewer : TreeViewer = TreeViewer(parser.ruleNames.toMutableList(), tree)
+      viewer.open()
   }
 ```
 
@@ -176,44 +185,66 @@ Quand on exécute le programme, on obtient la fenêtre suivante:
 
 ## Exercices
 
-1. Ouvrez le dossier `TP5/Ex1`. Suivez les `TODO` de la grammaire dans le fichier `app/src/main/antlr/ex1.g4` pour accepter des déclarations des variable ayant la syntaxe suivante:
+1. (Révision du TP précédent) Ouvrez le dossier `TP5`. Suivez les `TODO-1A` dans le fichier `app/src/main/antlr/tp5.g4` pour écrire une grammaire qui accepte des déclarations des variables ayant la syntaxe suivante:
 
 ```c
-  //Exemples - la grammaire doit accepter une seule ligne, pas plusieurs!
-  int _var1 = 2;
-  float _var2 = 5.55;
-  String _var3 = "alf"; 
-```
-  Les types possibles de données seront: `int`, `float` et `String`. Les noms des variables doivent commencer avec le caractère `_`.
-  Modifiez le code dans le fichier `app/src/main/kotlin/Main.kt` pour afficher le nom de la variable déclarée. Exécutez pour tester.
+  <type> <nom_variable>;
 
-2. Ouvrez le dossier `TP5/Ex2`. Suivez les `TODO` de la grammaire dans le fichier `app/src/main/antlr/ex2.g4` pour ajouter à la grammaire des jetons et des règles pour les expressions mathématiques. Votre grammaire doit reconnaître les opérations et les opérateurs d'addition, soustraction, multiplication et division (+, -, *, /, %). Suivez les étapes nécessaires et testez la fonctionnalité du programme pour l'expression `2+5/10-7`.
+  //Exemples
+  int var1;
+  float _a1b2;
+```
+Les types possibles sont `int` et `float`. Les noms des variables sont des chaînes de caractères qui peuvent commencer avec un `_` et peuvent contenir des lettres et des chiffres.  
+  
+Suivez les `TODO-1B` dans le même fichier pour que la grammaire accepte aussi des expressions mathématiques avec des nombres et des variables, en utilisant les opérateurs `+`, `-`, `*`, `/`.
 
 ```c
   //Exemple
-  2+7/5*3;
+  2*3+a;
 ```
 
-Modifiez le code dans le fichier `app/src/main/kotlin/Main.kt` pour afficher le nombre des opérandes dans l’expression. Exécutez pour tester.
-
-3. Ouvrez le dossier `TP5/Ex3`. Suivez les `TODO` de la grammaire dans le fichier `app/src/main/antlr/ex3.g4` pour ajouter des variables et des paranthèses à vos expressions. Les noms des variables sont celles de l'exercice 1.
-
+Finalement, suivez les `TODO-1C` dans le même fichier pour que la grammaire accepte aussi des affectations (assignments):
 ```c
+  <nom_variable> = <expression>;
+
   //Exemple
-  (2+_var1)/_var2*5;
+  _ab2 = 12*7+var1;
 ```
 
-4. Ouvrez le dossier `TP5/Ex4`. Suivez les `TODO` de la grammaire dans le fichier `app/src/main/antlr/ex4.g4` pour écrire une grammaire qui accepte plusieurs instructions. Les instructions peuvent être soit des déclarations des variables, soit des expressions mathématiques.
+Testez par compiler et exécuter le code. Voyez l’arbre d’analyse et vérifiez vos résultats avec des exemples.
 
-5. (Bonus) Ouvrez le dossier `TP5/Ex4`. Suivez les `TODO` de la grammaire dans le fichier `app/src/main/antlr/ex4.g4` pour écrire une grammaire dans laquelle les variables puissent être déclarées en utilisant des expressions.
+2. Suivez les `TODO-2` pour écrire une grammaire qui accepte des instructions `if` ayant la syntaxe suivante:
+
 ```c
-  //Exemple
-  int _var3=2*4*10;
-  float a; //on peut avoir aussi des déclarations sans expressions
+  if(<expression>){
+    <zéro ou plusieurs instructions>
+  }
+
+  //Exemples
+  if(2+3/_variable){
+    _var2 = 20;
+    5*3;
+  }
+```
+
+3. Suivez les `TODO-3` pour écrire une grammaire qui accepte des définitions des fonctions sans l'instruction de retour. Elles aurient la syntaxe suivante:
+
+```c
+  <type_de_retour> <nom_de_la_fonction>(type1 param1, type2 param2 ...){
+    <zéro ou plusieurs instructions>
+  }
+
+  //Exemples
+  int func(int a, float b){
+    a = 2 * b;
+    int _innervar;
+    _innervar = a+b;
+  }
 ```
 
 ## Bibliographie
 1. *Compilers: Principles, Techniques & Tools - 2nd Edition* - Chapitres 3.1, 4.1
 2. [ANTLR Lexer](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Lexer.html) 
 3. [ANTLR Parser](https://www.antlr.org/api/Java/org/antlr/v4/runtime/Parser.html)
+4. [Règles en ANTLR pour des langages de programmation](https://github.com/antlr/grammars-v4)
    

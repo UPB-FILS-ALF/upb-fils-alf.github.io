@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 description: Définir les langages de programmation
-slug: tp/04
+slug: /tp/04
 ---
 
 # 04 - Grammaires indépendantes de contexte

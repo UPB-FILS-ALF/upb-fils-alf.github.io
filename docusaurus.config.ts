@@ -3,6 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const config: Config = {
   title: 'Automates, Langages Formels et Compilateurs',
@@ -82,6 +83,11 @@ const config: Config = {
         {to: '/docs/category/tp', label: 'TP', position: 'left'},
         {to: '/docs/category/devoir', label: 'Devoir', position: 'left'},
         {
+          href: 'pathname://framework/',
+          label: 'Framework Docs',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/UPB-FILS-alf/upb-fils-alf.github.io',
           label: 'GitHub',
           position: 'right',
@@ -105,6 +111,10 @@ const config: Config = {
             {
               label: 'Devoir',
               to: '/docs/category/devoir',
+            },
+            {
+              label: 'Framework',
+              href: 'pathname://framework/',
             },
           ],
         },

@@ -83,7 +83,7 @@ const config: Config = {
         {to: '/docs/category/tp', label: 'TP', position: 'left'},
         {to: '/docs/category/devoir', label: 'Devoir', position: 'left'},
         {
-          href: '/framework/',
+          href: 'https://upb-fils-alf.github.io/framework/',
           label: 'Framework Docs',
           position: 'right',
         },
@@ -114,7 +114,7 @@ const config: Config = {
             },
             {
               label: 'Framework',
-              href: 'pathname://framework/',
+              href: 'https://upb-fils-alf.github.io/framework/',
             },
           ],
         },

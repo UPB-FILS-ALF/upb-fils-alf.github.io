@@ -83,7 +83,7 @@ const config: Config = {
         {to: '/docs/category/tp', label: 'TP', position: 'left'},
         {to: '/docs/category/devoir', label: 'Devoir', position: 'left'},
         {
-          href: 'pathname://framework/',
+          href: '/framework/',
           label: 'Framework Docs',
           position: 'right',
         },

@@ -1,20 +1,5 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:////PointingToDeclaration/-compiler-framework-v2/[root]/index.html
-$dokka.location://main/#/PointingToDeclaration/-compiler-framework-v2/[root]/main.html
-$dokka.location://readFromFile/#kotlin.String/PointingToDeclaration/-compiler-framework-v2/[root]/read-from-file.html
-$dokka.location://writeToFile/#kotlin.String#kotlin.String/PointingToDeclaration/-compiler-framework-v2/[root]/write-to-file.html
-$dokka.location:/MyHelperClass///PointingToDeclaration/-compiler-framework-v2/[root]/-my-helper-class/index.html
-$dokka.location:/MyHelperClass/MyHelperClass/#/PointingToDeclaration/-compiler-framework-v2/[root]/-my-helper-class/-my-helper-class.html
-$dokka.location:/MyHelperClass/checkAssignmentCompatibility/#domain.interfaces.Type#domain.interfaces.Type/PointingToDeclaration/-compiler-framework-v2/[root]/-my-helper-class/check-assignment-compatibility.html
-$dokka.location:/MyHelperClass/checkBinaryExpressionCompatibility/#domain.ast.BinaryExpression/PointingToDeclaration/-compiler-framework-v2/[root]/-my-helper-class/check-binary-expression-compatibility.html
-$dokka.location:/MyHelperClass/checkUnaryExpressionCompatibility/#domain.ast.UnaryExpression/PointingToDeclaration/-compiler-framework-v2/[root]/-my-helper-class/check-unary-expression-compatibility.html
-$dokka.location:/MyHelperClass/typeFromString/#kotlin.String/PointingToDeclaration/-compiler-framework-v2/[root]/-my-helper-class/type-from-string.html
-$dokka.location:/SemanticAnalyzer///PointingToDeclaration/-compiler-framework-v2/[root]/-semantic-analyzer/index.html
-$dokka.location:/SemanticAnalyzer/SemanticAnalyzer/#/PointingToDeclaration/-compiler-framework-v2/[root]/-semantic-analyzer/-semantic-analyzer.html
-$dokka.location:/SemanticAnalyzer/analyze/#domain.interfaces.AstObject/PointingToDeclaration/-compiler-framework-v2/[root]/-semantic-analyzer/analyze.html
-$dokka.location:/SemanticAnalyzer/helper/#/PointingToDeclaration/-compiler-framework-v2/[root]/-semantic-analyzer/helper.html
-$dokka.location:/SemanticAnalyzer/semanticErrors/#/PointingToDeclaration/-compiler-framework-v2/[root]/-semantic-analyzer/semantic-errors.html
 $dokka.location:compiler////PointingToDeclaration/-compiler-framework-v2/compiler/index.html
 $dokka.location:compiler/Analyzer///PointingToDeclaration/-compiler-framework-v2/compiler/-analyzer/index.html
 $dokka.location:compiler/Analyzer/analyze/#domain.interfaces.AstObject/PointingToDeclaration/-compiler-framework-v2/compiler/-analyzer/analyze.html
@@ -44,6 +29,7 @@ $dokka.location:compiler/ParserWrapper/ParserWrapper/#org.antlr.v4.runtime.Parse
 $dokka.location:compiler/ParserWrapper/parse/#/PointingToDeclaration/-compiler-framework-v2/compiler/-parser-wrapper/parse.html
 $dokka.location:domain.ast.errors////PointingToDeclaration/-compiler-framework-v2/domain.ast.errors/index.html
 $dokka.location:domain.ast.errors/CompilationError///PointingToDeclaration/-compiler-framework-v2/domain.ast.errors/-compilation-error/index.html
+$dokka.location:domain.ast.errors/CompilationError/line/#/PointingToDeclaration/-compiler-framework-v2/domain.ast.errors/-compilation-error/line.html
 $dokka.location:domain.ast.errors/Error///PointingToDeclaration/-compiler-framework-v2/domain.ast.errors/-error/index.html
 $dokka.location:domain.ast.errors/Error/Error/#kotlin.String#kotlin.Int#kotlin.Int#kotlin.String/PointingToDeclaration/-compiler-framework-v2/domain.ast.errors/-error/-error.html
 $dokka.location:domain.ast.errors/Error/charPosition/#/PointingToDeclaration/-compiler-framework-v2/domain.ast.errors/-error/char-position.html

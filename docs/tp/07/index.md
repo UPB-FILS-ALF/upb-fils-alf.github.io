@@ -58,17 +58,42 @@ Une visualisation graphique de ce processus:
 
 ![Chained symbol tables](images/07_chained_symbol_tables.png)
 
+:::tip
+Après avoir passé l’étape d’analyse sémantique de notre compilateur, l’AST ne contiendra plus de déclarations et définitions. On retrouvera toutes leurs informations dans les tableaux de symboles, alors on n’aura plus besoin de les garder. Plus précisement, les conséquences sont:
+- les instance de la classe `Definition` disparaissent
+- les définitions des variables disparaissent aussi. Si une définition contient aussi une valeur d’initialisation (c’est-à-dire, le champ `init`), on la remplacera avec une affectation (une instance de la classe `Assignment`).
+:::
+
+### Erreurs sémantiques
+Au contraire aux erreurs lexicales et syntaxiques, on peut anticiper les erreurs sémantiques possibles dans notre langage de programmation. Pour les représenter, on utilise la classe `domain.SemanticError` de notre bibliothèque. 
+
+On vous conseil de consulter cette classe et les valeurs du `SemanticError.Type` avant commencer les exercices.
+
 ## Exercices
-Ouvrez le fichier `TP7/app/src/main/kotlin/Analyzer.kt`. Suivez les taches suivantes:
+Ouvrez le fichier `TP7/app/src/main/kotlin/Analyzer.kt`. Suivez les taches suivantes.
 
-1. Suivez les `TODO-1` pour ajouter une variable et son type dans le tableau de symboles au moment de son déclaration. 
+0. Regardez la classe dans le fichier TP7.kt. Observez les choses suivantes: 
+- la méthode générale analyse, qui reçoit comme argument une instance quelconque qui implèmente l’interface AstObject
+- la méthode `analyseBlock()`, où on ignore les définitions et les déclarations
 
-    Pour les variables, vérifiez qu’elles ne soient pas déclarées déjà. 
+:::warning
+N’oubliez pas, pour les exercices 1-3, de traiter aussi les cas d’erreur! Si on a des erreurs sémantiques, on n’affiche plus l’AST résultant après l’analyse, mais une liste qui contient que les erreurs.
+:::
 
-    Pour les types, soit on a des primitives, le cas où vous pouvez ajouter une instance du type corréspondant dans le tableau de symboles, soit on a des types définis par l’utilisateur. Dans cette situation, il faut vérifier si le type existe ou non.  Vérifiez les types possibles dans la grammaire du fichier `TP7/app/src/main/antlr/tp7.g4`.
 
-2. Suivez les `TODO-2` pour vérifier dans une expréssion mathématique le type résultant. Pour faire cela, il faut vérifier les types des composantes de l’expréssion. Faites attention au fait qu’une expression peut aussi être une valeur ou un identificateur.
+1. Suivez les `TODO-1` pour ajouter une variable et son type dans le tableau de symboles au moment de son déclaration. Ignorez, pour cet exercice, les déclarations qui contiennent aussi une valeur d’initialisation.
+
+    Pour les variables, vérifiez qu’elles ne soient pas déjà déclarées. 
+
+    Pour les types, soit on a des primitives, le cas où vous pouvez ajouter une instance du type corréspondant dans le tableau de symboles, soit on a des types définis par l’utilisateur. Dans cette situation, il faut vérifier si le type existe ou non. On considère comme primitives les types `integer`, `float`, `boolean`, `string`.
+
+:::info
+Pour tester votre programme, utilisez les entrées dans les dossiers `Inputs/Exn`. Elles contiennent des ASTs sous la forme JSON. On vous a preparé déjà le moyen pour les déserializer et pour commencer à les analyser. Vous devez changer seulement le chemin vers le fichier de test désiré.
+:::
+
+2. Suivez les `TODO-2` pour vérifier dans une expréssion mathématique le type résultant. Le type se retrouvera dans le membre `typeName` de chaque instance. Pour faire cela, il faut vérifier les types des composantes de l’expréssion. Pour ce TP, les expressions peuvent être des expressions binaires, unaires, des valeurs et des identificateurs. Pour les valeurs, vérifiez le type de chacune. Pour les identificateurs, cherchez leur type dans les tableaux de symboles.
    
 3. Suivez les `TODO-3` pour vérifier, dans une affectation, que les types de données corréspondent. Cherchez dans les tableaux de symboles le type de la partie gauche et celui de la partie droite et ensuite comparez-les. Vous pouvez considerer les types float et int compatibles.
 
 ## Bibliographie
+1. *Compilers: Principles, Techniques & Tools - 2nd Edition* - Chapitres 2.7, 6.5

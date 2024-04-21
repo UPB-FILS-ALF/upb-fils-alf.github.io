@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-description: ast
+description: Utiliser le tableau de symboles
 slug: /tp/07
 ---
 

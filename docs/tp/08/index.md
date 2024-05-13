@@ -40,9 +40,9 @@ Pour tout opération logique, le résultat se trouvera toujours au sommet de la 
 
 | Instruction  | Opérandes | Description |
 |:-----------:|-----------|-------------|
-|`gt`, `ge`|- | Moins que/Moins que ou égal | 
-|`lt`, `le`|- | Moins que/Moins que ou égal | 
-|`eq`, `ne`|- | Égal/Différent| 
+|`gt`, `ge`|- | Prend les premières deux valeurs de la pile et les compare en utilisant plus grand que/plus grand que ou égal | 
+|`lt`, `le`|- | Prend les premières deux valeurs de la pile et les compare en utilisant moins que/Moins que ou égal | 
+|`eq`, `ne`|- | Prend les premières deux valeurs de la pile et les compare en utilisant égal/différent| 
 
 ### Contrôle du flux
 

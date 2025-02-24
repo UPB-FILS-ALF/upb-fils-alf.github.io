@@ -51,7 +51,7 @@ Popescu.adrian.constantin98@gmail.com
 **Mihai Costin**
 ![Mihai Costin](images/mihai_costin.jpg)
  
-Support TP & Devoir \
+TP & Framework auteur \
 GitHub: [mihaicostin34](https://github.com/mihaicostin34) \
 mihai.costin@stud.fils.upb.ro
 </td>

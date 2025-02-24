@@ -71,7 +71,7 @@ amalia.simion@stud.fils.upb.ro
 1. Vous pouvez vous absenter sans motivation pendant un maximum de 2 TPs.
 2. Les TPs **NE PEUVENT PAS ÊTRE RÉCUPÉRÉS**
 3. Vous pouvez motiver l’absence aux TP (motif médical) dans maximum 2 semaines de la date de votre absence 
-4. Chaque étudiant doit venir avec son groupe au TP, s'il y a des problèmes vous devez annoncer en avance.
+4. Chaque étudiant doit venir avec son groupe au TP, s'il y a des problèmes vous devez annoncer *en avance*.
 5. Vous pouvez être en retard de 10 minutes maximum au TP
 6. Les étudiants qui rattrapent la matière peuvent participer aux TPs seulement s'il y a des places libres. Afin d'obtenir des points, ils doivent résoudre des devoirs et passer l'examen final
 7. Vous aurez besoin d'un compte [github](https://www.github.com) avec votre nom complet et une vraie photo de profil.

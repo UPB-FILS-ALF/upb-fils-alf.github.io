@@ -27,6 +27,15 @@ alexandru.radovici@upb.ro
 </td>
 
 <td>
+**Mihai Costin**
+![Mihai Costin](images/mihai_costin.jpg)
+ 
+Professeur de TP \
+GitHub: [mihaicostin34](https://github.com/mihaicostin34) \
+mihai.costin@stud.fils.upb.ro
+</td>
+
+<td>
 **Amalia Simion**
 ![Amalia Simion](images/amalia_simion.jpg)
 
@@ -34,28 +43,6 @@ Responsable des devoirs \
 GitHub: [CAmi307](https://github.com/CAmi307) \
 amalia.simion@stud.fils.upb.ro
 </td>
-
-<td>
-**Adrian Popescu**
-![Adrian Popescu](images/adrian_popescu.jpg)
- 
-Professeur de TP \
-GitHub: [nerodesu017](https://github.com/nerodesu017) \
-Popescu.adrian.constantin98@gmail.com
-</td>
-</tr>
-
-<tr valign="top">
-
-<td>
-**Mihai Costin**
-![Mihai Costin](images/mihai_costin.jpg)
- 
-Support TP & Devoir \
-GitHub: [mihaicostin34](https://github.com/mihaicostin34) \
-mihai.costin@stud.fils.upb.ro
-</td>
-
 </tr>
 </table>
 

@@ -48,13 +48,13 @@ amalia.simion@stud.fils.upb.ro
 
 ## Horaire
 
-| Activité | Goupe | Jour | Heure | Salle |
+| Activité | Goupe | Semaine | Jour | Heure | Salle |
 |----------|-------|------|-------|-------|
-| Cours | *tous les étudiants* | Jeudi | 10 - 12 | PR002 |
-| TP | 1220A sous-groupe 2 | Mardi | 8 - 10 | EG 306 |
-| TP | 1220A sous-groupe 1 | Mardi | 10 - 12 | EG 306 |
-| TP | 1220B sous-groupe 2 | Mardi | 8 - 10 | EG 306 |
-| TP | 1220B sous-groupe 1 | Mardi | 10 - 12 | EG 306 |
+| Cours | *tous les étudiants* | chaque semaine | Jeudi | 10 - 12 | PR002 |
+| TP | 1220A sous-groupe 1 | impaire | Mardi | 12 - 14 | EG 306 |
+| TP | 1220A sous-groupe 2 | impaire| Mardi | 14 - 16 | EG 306 |
+| TP | 1220B | paire | Mardi | 12 - 14 | EG 306 |
+| TP | 1221B | paire | Mardi | 14 - 16 | EG 306 |
 
 ## Système de notation
 

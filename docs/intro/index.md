@@ -63,7 +63,7 @@ mihai.costin@stud.fils.upb.ro
 
 | Activité | Goupe | Jour | Heure | Salle |
 |----------|-------|------|-------|-------|---------|
-| Cours | *tous les étudiants* | chaque semaine | Jeudi | 10 - 12 | PR002 |
+| Cours | *tous les étudiants* | Jeudi | 10 - 12 | PR002 |
 | TP | 1220A | Mardi | 14 - 16 | EG 306 |
 | TP | 1220B | Mardi | 12 - 14 | EG 306 |
 | TP | 1221B | Mardi | 14 - 16 | EG 306 |

@@ -64,9 +64,8 @@ mihai.costin@stud.fils.upb.ro
 | Activité | Goupe | Jour | Heure | Salle |
 |----------|-------|------|-------|-------|---------|
 | Cours | *tous les étudiants* | Jeudi | 10 - 12 | PR002 |
-| TP | 1220A | Mardi | 14 - 16 | EG 306 |
-| TP | 1220B | Mardi | 12 - 14 | EG 306 |
-| TP | 1221B | Mardi | 14 - 16 | EG 306 |
+| TP | 1220A + 1221B sous groupe 1 | Mardi | 14 - 16 | EG 306 |
+| TP | 1220B + 1221B sous groupe 2 | Mardi | 12 - 14 | EG 306 |
 
 ## Système de notation
 

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[9515],{3050:e=>{e.exports=JSON.parse('{"title":"Devoir","description":"Les devoirs","slug":"/category/devoir","permalink":"/docs/category/devoir","navigation":{"previous":{"title":"01 - Mini-processeur","permalink":"/docs/tp/01"},"next":{"title":"Devoir","permalink":"/docs/devoir/no_homework"}}}')}}]);

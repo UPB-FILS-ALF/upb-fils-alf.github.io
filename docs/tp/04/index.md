@@ -88,16 +88,19 @@ D’habitude, la raison pour les ambiguïtés est une situation bien connue. Dan
 Pour corriger notre grammaire, il faut imposer la priorité des opérateurs. On va partager les expression possibles dans les catégories suivantes, dans une ordre hiérarchique: des sommes, des produits, des expressions entre parathèses et des identificateurs. Pour chacune de cettes catégories, on va utiliser une variable en tant que tête d’une production. Dans le corps de la production correspondante, on aura une occurence de la variable suivante dans la hiérarchie. La grammaire devient:
 
 $$
-  S \rightarrow T \space | \space E+T \tag{1}
+  S \rightarrow E \tag{1}
 $$
 $$
-  T \rightarrow F \space | \space T*F  \tag{2}
+  E \rightarrow T \space | \space E+T \tag{2}
 $$
 $$
-  F \rightarrow I \space | \space (E)  \tag{3}
+  T \rightarrow F \space | \space T*F  \tag{3}
 $$
 $$
-  I \rightarrow a \space | \space b \space | \space Ia \space | \space Ib  \tag{4}
+  F \rightarrow I \space | \space (E)  \tag{4}
+$$
+$$
+  I \rightarrow a \space | \space b \space | \space Ia \space | \space Ib  \tag{5}
 $$
 
 ## Exercices
